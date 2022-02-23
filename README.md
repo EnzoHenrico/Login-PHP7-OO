@@ -1,7 +1,7 @@
 # Login-PHP7-OO
 login
 
-A login/register system object oriented made all in PHP and CSS without any framework, MySQLi connection db and Passwaord Hash cryptography, this is an update of my first prject who was made all in functional PHP.
+A login/register system object oriented made all in PHP and CSS without any framework, MySQLi connection and Password Hash cryptography, this is an update of my first prject who was made all in functional PHP.
 
 
 
