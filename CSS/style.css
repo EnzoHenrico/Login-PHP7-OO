@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap");
+
+body {
+  font-family: "Dongle", sans-serif;
+  font-size: 28;
+  margin: 0;
+  background-color: #ffffff;
+  background-image: linear-gradient(0deg, #ffffff 0%, #e7e3e3 100%);
+}
+
+/*Bloco de Login*/
+section.loginBlock {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin: auto;
+  box-shadow: 10px 10px 20px #0000004b;
+  display: flex;
+  justify-content: center;
+  width: 245px;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+/*Bloco de criação de conta*/
+section.createBLock {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin: auto;
+  box-shadow: 10px 10px 20px #0000004b;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+/*Bloco de aviso de sucesso*/
+section.successBLock {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin: auto;
+  box-shadow: 10px 10px 20px #0000004b;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/*Área dp bloco de login*/
+.loginField {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.875rem 2.188rem;
+}
+/*Área dp bloco de criação de conta*/
+.createField {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.875rem 2.188rem;
+}
+/*Área dp bloco do aviso de sucesso*/
+.successField {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.875rem 2.188rem;
+}
+
+/* --index-- Link redirecionamentro para --register--*/
+a {
+  display: flex;
+  font-weight: 100;
+  font-size: 19px;
+}
+
+/*Alinhamento dos elementos*/
+h1.index {
+  font-size: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
+
+h1.register {
+  font-size: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
+
+h1.success {
+  font-size: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*--index--Inputs de usuário e senha*/
+.textField > input.login {
+  border: none;
+  margin-bottom: -31px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #0000004f;
+}
+
+.textField > input.key {
+  border: none;
+  margin-bottom: -31px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #0000004f;
+}
+
+/*--register-- Campos criação de conta*/
+.textField > input.createName {
+  border: none;
+  margin-bottom: -31px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #0000004f;
+  max-width: 100%;
+  width: 270px;
+}
+
+.textField > input.createLogin {
+  border: none;
+  margin-bottom: -31px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #0000004f;
+  max-width: 100%;
+  width: 270px;
+}
+
+.textField > input.createKey {
+  border: none;
+  margin-bottom: -31px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #0000004f;
+  max-width: 100%;
+  width: 270px;
+}
+
+.textField > input.confirmKey {
+  border: none;
+  margin-bottom: -31px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #0000004f;
+  max-width: 100%;
+  width: 270px;
+}
+
+/*Botão de Send*/
+.btn-login {
+  justify-content: center;
+  margin-top: 34px;
+  margin-bottom: -9px;
+}
+.btn-redirect {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+  margin-bottom: -9px;
+}
+.btn-redirect > button {
+  border: none;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  font-family: "Dongle", sans-serif;
+  font-size: 25;
+  width: 99px;
+  box-shadow: 1px 1px 10px #00000066;
+  cursor: pointer;
+}
+.btn-login > button {
+  border: none;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  font-family: "Dongle", sans-serif;
+  font-size: 25;
+  width: 99px;
+  box-shadow: 1px 1px 10px #00000066;
+  cursor: pointer;
+}
+
+/*Estilo dos relatórios de erros*/
+.errorLog {
+  font-size: 23px;
+  color: red;
+  font-weight: 100;
+  display: flex;
+}
+
+/*Animação*/
+#animar.loginBlock {
+  animation-name: slide;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+#animar.successBlock {
+  animation-name: slide;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+#animar.createBLock {
+  animation-name: slide;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
