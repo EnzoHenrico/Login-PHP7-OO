@@ -1,12 +1,31 @@
-<?php 
-require_once "ClassLoginFunctions.php";
+<?php
 
-Class ClassLogin extends LoginFunctions{
-      
-  public function __construct($postLogin, $postKey){
+require_once 'ClassConnection.php';
 
-      self::verifyInputs($postLogin, $postKey); 
+class LoginFunctions
+{
+
+  public $inputLogin;
+  public $inputKey;
+
+  function __construct($postLogin, $postKey)
+  {
+
+    $connection = new ClassConnection();
+    // Security: clean sql inputs
+    $this->cleanLogin = $connection->clean($postLogin);
+    $this->cleanKey = $connection->clean($postKey);
+  }
+
+  public function verifyInputs()
+  {
+
+    $verifyIf = new Verification();
+
+    try {
+      $verifyIf->loginIsValid($this->inputLogin, $this->inputKey);
+    } catch (Exception $error) {
+      echo $error->getMessage();
+    }
   }
 }
-   
-?>
