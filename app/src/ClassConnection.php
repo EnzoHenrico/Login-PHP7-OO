@@ -1,7 +1,7 @@
 <?php
 
 //Conexão com banco de dados
-class ClassConnection{
+class ClassConnection {
 
     protected $servername = "localhost";
     protected $username = "root";
