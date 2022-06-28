@@ -1,5 +1,6 @@
 <?php
-require_once '../src/ClassLogin.php';
+require_once '../app/src/ClassLogin.php';
+require_once '../app/src/Session.php';
 
 class SeesionQuery extends Session
 {
@@ -22,20 +23,26 @@ class SeesionQuery extends Session
             mysqli_close($this->connection->connect());
 
             return $data;
-        } catch (Exception $error) {
+        } catch (\Exception $error) {
             echo $error->getMessage();
         }
     }
 
     public function getDataByUsername($login)
     {
+        echo "query: ".$login."<br>";
         try {
             $sql = "SELECT * FROM `usuarios` WHERE (`usuarios`.`login` = '$login')";
             $rowResult  = mysqli_query($this->connection->connect(), $sql);
+            $query = $rowResult->fetch_array();
 
-            return $rowResult->fetch_array();
-        } catch (Exception $error) {
-            $error->getMessage();
+            if(!$query){
+                throw new \Exception("Username unavaliable");
+            } else{
+                return $query;
+            }
+        } catch (\Exception $error) {
+            echo $error->getMessage();
         }
     }
 
@@ -50,7 +57,7 @@ class SeesionQuery extends Session
             header('location: home.php');
             mysqli_close($this->connection->connect());
         } else {
-            $this->loginError[1] = "User and Password don't match.";
+            throw new \Exception("Password dont match");
         }
     }
 }

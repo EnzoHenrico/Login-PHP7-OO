@@ -1,22 +1,22 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="../style/stylesheet.css">
 </head>
 <body>
 <?php
 require_once '../app/src/ClassRegister.php';
 
+$message = "";
+
 if(isset($_POST['btn-login'])){
 
-  try {
     $classRegister = new ClassRegister($_POST['createName'], $_POST['createLogin'], $_POST['createKey'], $_POST['confirmKey']);
-
+    
     $classRegister->createUser();
+    
+    $message = $classRegister->getRegisterError();
 
-  } catch(RegisterError $error) {
-    $message = $error->getMessage();
-  }
 }
 ?>
 <div name="createAccount" class="createField">

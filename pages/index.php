@@ -1,18 +1,18 @@
 <?php
-require_once "../classes/ClassConnection.php";
-require_once "../classes/ClassLogin.php";
+require_once "../app/src/ClassConnection.php";
+require_once "../app/src/ClassLogin.php";
 session_start();
 
 if(isset($_POST['btn-login'])){
 
-  $classLogin = new ClassLogin( $_POST['login'], $_POST['key']);
+  $classLogin = new ClassLogin($_POST['login'], $_POST['key']);
   $loginError = $classLogin->getLoginError();
 }
 ?>
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="../style/stylesheet.css">
 </head>
 <body>
     <div name="login" class="loginField">
@@ -30,11 +30,9 @@ if(isset($_POST['btn-login'])){
                 <div class="errorLog">
                 <!-- Log de erros PHP-->
                 <?php
-                    if (!empty($loginError)){  
-                        foreach ($loginError as $log){
-                            echo $log;
-                        }
-                    }
+                    if(isset($loginError)){
+                        echo $loginError;
+                    } 
                 ?>
                 </div>
             <div class="btn-login">

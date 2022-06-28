@@ -1,33 +1,32 @@
 <?php
-require_once '../database/registerQuery.php';
-require_once '../database/loginQuery.php';
-require_once '../database/sessionQuery.php';
+require_once '../app/database/registerQuery.php';
+require_once '../app/database/loginQuery.php';
+require_once '../app/database/sessionQuery.php';
 
 class Verification
 {
 
   public function fieldIsfilled($input, $fieldName)
   {
-
-    if (empty($input)) {
-      throw new InputError(400, "{$fieldName} field mandatory");
+    if (!$input) {
+      throw new \Exception("{$fieldName} field mandatory");
+    } else{
+      return $input;
     }
-
-    return $input;
   }
 
   public function inputPasswordMatch($key, $confirmKey)
   {
 
     if (empty($key)) {
-      throw new InputError(400, "Password field mandatory");
+      throw new \Exception("Password field mandatory");
     }
     if (empty($confirmKey)) {
-      throw new InputError(400, "Confirm your password");
+      throw new \Exception("Confirm your password");
     }
 
     if ($key != $confirmKey) {
-      throw new InputError(400, "Password need match");
+      throw new \Exception("Password need match");
     }
 
     return $key;
@@ -39,13 +38,13 @@ class Verification
     $sql = new RegisterQuery();
 
     if (empty($username)) {
-      throw new RegisterError(400, "Username field mandatory");
+      throw new \Exception("Username field mandatory");
     }
 
     $usernameCount = $sql->loginVerify($username);
 
     if ($usernameCount > 0) {
-      throw new RegisterError(400, "Username in use");
+      throw new \Exception("Username in use");
     }
 
     return $username;
@@ -61,7 +60,12 @@ class Verification
       self::fieldIsfilled($key, 'Password');
 
       $data = $sql->getDataByUsername($login);
+
+      if(!$data){
+        throw new \Exception("No Data");
+      }
       $sql->authenticateSession($data, $key);
+      
     } catch (Exception $error) {
       echo $error->getMessage();
     }

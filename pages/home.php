@@ -1,5 +1,5 @@
 <?php
-require_once '../classes/ClassId.php';
+require_once '../app/src/Session.php';
 
 session_start();
 

@@ -1,13 +1,15 @@
 <?php
 require_once 'ClassConnection.php';
-require_once '../classes/database/registerQuery.php';
-
-class ClassRegister {
+require_once '../app/src/middlewares/verification.php';
+require_once '../app/database/registerQuery.php';
+class ClassRegister extends RegisterQuery
+{
 
   public $inputName;
   public $inputUsername;
   public $inputKey;
   public $inputConfirmKey;
+  private $registerError;
 
   public function __construct($postCreateName, $postCreateLogin, $postCreateKey, $postConfirmKey){
 
@@ -26,18 +28,27 @@ class ClassRegister {
     $verifyIf = new Verification();
 
     try {
-      
-      $name = $verifyIf->fieldIsfilled($this->inputName, "Name");
       $username = $verifyIf->fieldIsfilled($this->inputUsername, "Username");
       $username = $verifyIf->usernameIsAvailable($this->inputUsername);
+      $name = $verifyIf->fieldIsfilled($this->inputName, "Name");
       $key = $verifyIf->inputPasswordMatch($this->inputKey, $this->inputConfirmKey);
 
-      $sql->createNewUser($name , $username, $key);      
+      return $sql->createNewUser($name , $username, $key);
 
-    } catch (Exception $error) {
-      echo $error->getMessage();
+    } catch(\Exception $error) {
+      echo "Create user exception: ".$error;
+      return self::settRegisterError($error);
     }
+    echo"<br>User created...<br>";
+
+  }
+  public function settRegisterError($error){
+    $error = $this->registerError;
+    return $error;
+  }
+
+  public function getRegisterError(){
+    return $this->registerError; 
   }
 }
-
 ?>

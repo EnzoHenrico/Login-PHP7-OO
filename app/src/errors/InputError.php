@@ -1,11 +1,11 @@
 <?php
 
-class InputError {
+class InputError{
     
-    public $message;
-    public $code;
+    private $message;
+    private $code;
 
-    private function __construct($code, $message){
+    function __construct($code, $message){
         $this->code = $code;
         $this->error = $message;
     }

@@ -1,7 +1,7 @@
 <?php
-require_once 'ClassLoginFunctions.php';
-
-class Session extends LoginFunctions{
+require_once '../app/database/sessionQuery.php';
+class Session
+{
 
   public function sessionData(){        
     

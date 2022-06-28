@@ -5,7 +5,7 @@ class VerificationError {
     public $message;
     public $code;
 
-    private function __construct($code, $message){
+    function __construct($code, $message){
         $this->code = $code;
         $this->error = $message;
     }
