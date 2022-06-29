@@ -4,7 +4,7 @@ body {
   font-family: "Dongle", sans-serif;
   font-size: 28;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #ffffff; 
   background-image: linear-gradient(0deg, #ffffff 0%, #e7e3e3 100%);
 }
 
@@ -216,6 +216,7 @@ h1.success {
   color: red;
   font-weight: 100;
   display: flex;
+  margin: 0;
 }
 
 /*Animação*/

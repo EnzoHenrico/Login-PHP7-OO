@@ -1,6 +1,4 @@
 <?php
-
-//Conexão com banco de dados
 class ClassConnection {
 
     protected $servername = "localhost";

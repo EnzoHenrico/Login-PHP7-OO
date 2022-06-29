@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['btn-redirect'])){
 
-  header('location: index.php');
+  header('location: login.php');
   session_unset();
   session_destroy();  
 }
@@ -13,7 +13,7 @@ if (isset($_POST['btn-redirect'])){
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="style/stylesheet.css">
 </head>
 <body>
     <div name="createSucess" class="successField">

@@ -1,5 +1,5 @@
 <?php
-require_once '../app/src/Session.php';
+require_once '../app/services/session.php';
 
 session_start();
 
@@ -7,8 +7,8 @@ if(!isset ($_SESSION['logged'])){
     header('Location: index.php');
 }
 
-$homepage = new Session();
-$data = $homepage->sessionData();
+$homepage = new SeesionServices();
+$data = $homepage->getSessionData();
 
 ?>
 

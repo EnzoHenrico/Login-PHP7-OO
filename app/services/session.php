@@ -1,8 +1,7 @@
 <?php
-require_once '../app/src/ClassLogin.php';
-require_once '../app/src/Session.php';
+require_once '../app/ClassConnection.php';
 
-class SeesionQuery extends Session
+class SeesionServices
 {
 
     private $connection;
@@ -10,6 +9,12 @@ class SeesionQuery extends Session
     function __construct()
     {
         $this->connection = new ClassConnection();
+    }
+
+    public function getSessionData(){        
+    
+        $data = self::getDataById($_SESSION['id_usuario']);
+        return $data;
     }
 
     public function getDataById($id)
@@ -30,7 +35,6 @@ class SeesionQuery extends Session
 
     public function getDataByUsername($login)
     {
-        echo "query: ".$login."<br>";
         try {
             $sql = "SELECT * FROM `usuarios` WHERE (`usuarios`.`login` = '$login')";
             $rowResult  = mysqli_query($this->connection->connect(), $sql);
@@ -42,7 +46,7 @@ class SeesionQuery extends Session
                 return $query;
             }
         } catch (\Exception $error) {
-            echo $error->getMessage();
+            throw $error;
         }
     }
 
@@ -57,7 +61,7 @@ class SeesionQuery extends Session
             header('location: home.php');
             mysqli_close($this->connection->connect());
         } else {
-            throw new \Exception("Password dont match");
+            throw new \Exception("Invalid Password");
         }
     }
 }
