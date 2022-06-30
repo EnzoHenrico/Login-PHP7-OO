@@ -17,9 +17,18 @@ $data = $homepage->getSessionData();
 <meta charset="utf-8">
     <title>Página Restrita</title>
     <meta chrset="utf-8">
+    <link rel="stylesheet" href="../style/stylesheet.css">
 </head>
 <body>
-    <h1> Olá, <?php echo $data['nome']; ?></h1>
-    <a href="logout.php">Logout</a>
+    <div class="profileField">
+        <section class="profileBlock">
+                <h1 class="success">Ola, <?php echo  $data['nome']; ?></h1>    
+                <div class="btn-redirect">
+                    <a class="btn-redirect" href="logout.php">
+                        <button type="submit" name="btn-redirect">Logout</button>
+                    </a>
+                </div>     
+        </section>
+    </div>
 </body>
 </html>

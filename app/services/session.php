@@ -41,7 +41,7 @@ class SeesionServices
             $query = $rowResult->fetch_array();
 
             if(!$query){
-                throw new \Exception("Username unavaliable");
+                throw new \Exception("User or password Invalid");
             } else{
                 return $query;
             }
@@ -61,7 +61,7 @@ class SeesionServices
             header('location: home.php');
             mysqli_close($this->connection->connect());
         } else {
-            throw new \Exception("Invalid Password");
+            throw new \Exception("User or password Invalid");
         }
     }
 }

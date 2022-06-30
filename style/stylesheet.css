@@ -48,6 +48,19 @@ section.successBLock {
   transform: translateY(-20px);
 }
 
+/*Bloco de informação do usuário*/
+section.profileBLock {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin: auto;
+  box-shadow: 10px 10px 20px #0000004b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+
 /*Área dp bloco de login*/
 .loginField {
   display: flex;
@@ -62,8 +75,16 @@ section.successBLock {
   text-align: center;
   padding: 1.875rem 2.188rem;
 }
-/*Área dp bloco do aviso de sucesso*/
+/*Área do bloco do aviso de sucesso*/
 .successField {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.875rem 2.188rem;
+}
+
+/*Área do bloco de usuário*/
+.profileField {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -230,6 +251,7 @@ h1.success {
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
 }
+
 #animar.createBLock {
   animation-name: slide;
   animation-duration: 0.8s;

@@ -13,7 +13,7 @@ if (isset($_POST['btn-redirect'])){
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="style/stylesheet.css">
+<link rel="stylesheet" href="../style/stylesheet.css">
 </head>
 <body>
     <div name="createSucess" class="successField">
